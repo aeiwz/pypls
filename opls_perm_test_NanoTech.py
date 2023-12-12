@@ -98,22 +98,19 @@ for i in range(len(c_list)):
     s_scores_df = pd.DataFrame({'correlation': cv.correlation,'covariance': cv.covariance}, index=ppm)
     df_opls_scores = pd.DataFrame({'t_scores': cv.scores, 't_ortho': cv.orthogonal_score, 't_pred': cv.predictive_score, 'label': y})
 
-        
+    color_map={
+            'Control group vehicle': "#E91E63",        
+            'Vehicle': "#FF9800",
+            'CBD': "#FFEB3B",       
+            'CBD/NP': "#9C27B0",
+            'L-dopa': "#03A9F4"
+            }
+    
     #Visualise
     from pca_ellipse import confidence_ellipse
     fig = px.scatter(df_opls_scores, x='t_scores', y='t_ortho', 
                     color='label', 
-                    color_discrete_map={
-                                        "Control group vehicle": "#E91E63",        
-                                        "Vehicle": "#FF9800",
-                                        "CBD": "#FFEB3B",       
-                                        "TCBD/NP": "#9C27B0",
-                                        "L-dopa": "#03A9F4",
-                                        "X": "#4CAF50",        
-                                        "X": "#B30000",
-                                        "X": "#3F51B5",
-                                        "X": "#000000"
-                                        }, 
+                    color_discrete_map=color_map, 
                     title='<b>OPLS-DA Scores Plot<b>', 
                     height=900, width=1300,
                     labels={
