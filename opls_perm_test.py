@@ -286,7 +286,8 @@ for i in range(len(c_list)):
     #setup figure size
 
 
-    fig = px.scatter(s_scores_df, x='covariance', y='correlation', color='covariance', color_continuous_scale='jet', text=s_scores_df.index, height=900, width=2000)
+    fig = px.scatter(s_scores_df, x='covariance', y='correlation', color='covariance', range_color=[-1,1],
+                     color_continuous_scale='jet', text=s_scores_df.index, height=900, width=2000)
     fig.update_layout(title='<b>S-plot</b>', xaxis_title='Covariance', yaxis_title='Correlation')
 
     #add line of axis and set color to black and line width to 2 pixel
