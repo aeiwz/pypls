@@ -15,6 +15,7 @@ class Normalization:
 
         import numpy as np
         import pandas as pd
+        import matplotlib.pyplot as plt
         #check data type of input data id dataframe or not
         if not isinstance(df, pd.DataFrame):
             df = pd.DataFrame(df)
